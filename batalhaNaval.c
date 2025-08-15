@@ -1,9 +1,5 @@
 #include <stdio.h>
 
-int dentroDosLimites(int linha, int coluna) {
-    return linha >= 0 && linha < 10 && coluna >= 0 && coluna < 10;
-}
-
 
 int main () {
 
@@ -52,27 +48,24 @@ int main () {
    int dv = 7; // direção vertical
    int dh = 0; // direção horizontal
     for (v = 0; v < 3; v++) {
-        for (h = 5 - v; h <= 5 + v; h++){ 
-             if (dentroDosLimites(linha, coluna)) {     
+        for (h = 5 - v; h <= 5 + v; h++){                   
             tabuleiro[v + dv][h + dh] = '5';
         }   
     }
-}
+
 
     //habilidade 02 - cruz  
     int cv = 1; // centro vertical
     int ch = 7; // centro horizontal
 
-    for (v = -1; v <= 1; v++) {
-         if (dentroDosLimites(linha, coluna)) {
+    for (v = -1; v <= 1; v++) {         
     tabuleiro[cv + v][ch] = '5'; // braço vertical
     }
-}
-    for (h = -2; h <= 2; h++) {
-         if (dentroDosLimites(linha, coluna)) {
+
+    for (h = -2; h <= 2; h++) {        
     tabuleiro[cv][ch + h] = '5'; // braço horizontal
     }
-}
+
 
 
     //habilidade 03 - octaedro  
@@ -80,12 +73,11 @@ int main () {
     int oh = 5; // centro horizontal
 
     for (v = -1; v <= 1; v++) {
-        for (h = -1; h <= 1; h++) {
-           if (abs(v) + abs(h) <= 1) {
+        for (h = -1; h <= 1; h++) {           
             tabuleiro[ov + v][oh + h] = '5';
         }
     }
-}
+
 
 
     //exibição do indice de linhas e exibição das linhas
